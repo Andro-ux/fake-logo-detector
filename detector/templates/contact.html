@@ -1,0 +1,120 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <title>Contact Us - Fake Logo Detector</title>
+    <style>
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 1s ease-in-out forwards;
+        }
+
+        body {
+            background-image: url("{% static 'images/rhon.jpg' %}");
+            background-size: cover;
+            background-position: center;
+            font-family: 'Inter', sans-serif;
+            color: white;
+        }
+
+        .overlay {
+            background-color: rgba(0, 0, 0, 0.5);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .container {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 12px;
+            padding: 20px;
+            margin: auto;
+            max-width: 80%;
+        }
+
+        h1 {
+            font-weight: bold;
+            color: #D6BCFA;
+        }
+
+        label, p {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        nav a {
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #D6BCFA;
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay"></div>
+    <header class="relative bg-purple-800 bg-opacity-75 p-6 fade-in">
+        <div class="container flex justify-between items-center">
+            <h1 class="text-2xl font-bold">Fake Logo Detector</h1>
+            <nav>
+                <a href="/" class="mx-4 text-gray-300 hover:text-white">Home</a>
+                <a href="/about" class="mx-4 text-gray-300 hover:text-white">About Us</a>
+                <a href="/contact" class="mx-4 text-gray-300 hover:text-white">Contact Us</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="relative mt-20 fade-in">
+        <div class="container text-center">
+            <h2 class="text-3xl font-bold mb-6">Contact Us</h2>
+            <p class="text-lg mb-8">
+                Have questions or feedback? We'd love to hear from you! Reach out to us at:
+            </p>
+            <div class="mb-6">
+                <p>23h51a6258@cmrcet.ac.in</p>
+                <p>23h51a6255@cmrcet.ac.in</p>
+            </div>
+
+            <form id="feedbackForm" class="text-left mx-auto max-w-lg">
+                <label for="feedback" class="block text-sm mb-2">Your Feedback:</label>
+                <textarea id="feedback" name="feedback" rows="4" class="w-full p-2 mb-4 rounded-lg text-black"></textarea>
+                <button type="button" onclick="submitFeedback()" class="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded cursor-pointer w-full">
+                    Submit Feedback
+                </button>
+                <p id="feedbackMessage" class="text-green-500 mt-4 text-center"></p>
+            </form>
+        </div>
+    </main>
+
+    <footer class="relative bg-purple-900 bg-opacity-75 p-4 mt-12 text-center text-white fade-in">
+        <p class="text-sm">© 2024 Fake Logo Detector. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        function submitFeedback() {
+            // Simulate feedback submission
+            const feedbackMessage = document.getElementById('feedbackMessage');
+            feedbackMessage.innerText = 'Thank you for your feedback!';
+            setTimeout(() => {
+                feedbackMessage.innerText = ''; // Clear the message after 3 seconds
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
