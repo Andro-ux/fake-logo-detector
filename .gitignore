@@ -16,7 +16,7 @@ venv/
 
 # Static and media files
 /static/
-/media/*
+
 
 # VSCode
 .vscode/
